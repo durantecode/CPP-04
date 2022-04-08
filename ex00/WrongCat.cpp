@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 02:00:55 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/08 14:09:33 by ldurante         ###   ########.fr       */
+/*   Created: 2022/04/08 14:14:24 by ldurante          #+#    #+#             */
+/*   Updated: 2022/04/08 14:14:48 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
-Animal::Animal(void) : m_type("")
+WrongCat::WrongCat(void)
 {
-	std::cout << "Animal default constructor called" << std::endl;
+	this->m_type = "WrongCat";
+	std::cout << "WrongCat default constructor called" << std::endl;
 }
 
-Animal::Animal(Animal const &toCopy)
+WrongCat::WrongCat(WrongCat const &toCopy)
 {
 	*this = toCopy;
 }
 
-Animal &Animal::operator = (Animal const &toCopy)
+WrongCat &WrongCat::operator = (WrongCat const &toCopy)
 {
 	this->m_type = toCopy.getType();
 	return *this;
 }
 
-const std::string &Animal::getType(void) const
+void WrongCat::makeSound(void) const
 {
-	return (this->m_type);
+	std::cout << "WrongCat goes miau miau miauuuuu" << std::endl;
 }
 
-void Animal::makeSound(void) const
+WrongCat::~WrongCat(void)
 {
-	std::cout << "Animals can make sound..." << std::endl;
-}
-
-Animal::~Animal(void)
-{
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "WrongCat destructor called" << std::endl;
 }

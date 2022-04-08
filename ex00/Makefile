@@ -6,7 +6,7 @@
 #    By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 20:32:38 by ldurante          #+#    #+#              #
-#    Updated: 2022/04/08 00:15:36 by ldurante         ###   ########.fr        #
+#    Updated: 2022/04/08 14:18:14 by ldurante         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ NO_COLOR = \033[0m
 
 # SOURCES & OBJECTS #
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

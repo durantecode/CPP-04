@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 02:02:06 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/08 02:05:11 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/04/08 13:43:42 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 Dog::Dog(void)
 {
-
+	this->m_type = "Dog";
+	std::cout << "Dog default constructor called" << std::endl;
 }
 
 Dog::Dog(Dog const &toCopy)
@@ -22,17 +23,18 @@ Dog::Dog(Dog const &toCopy)
 	*this = toCopy;
 }
 
-Dog::~Dog(void)
+Dog &Dog::operator = (Dog const &toCopy)
 {
-
-}
-
-Dog &Dog::operator=(Dog const &toCopy)
-{
+	this->m_type = toCopy.getType();
 	return *this;
 }
 
-/*std::ostream &operator<<(std::ostream &out, Dog const &toCopy)
+void Dog::makeSound(void) const
 {
-	return out;
-}*/
+	std::cout << "Dog goes guau guau guauuuu" << std::endl;
+}
+
+Dog::~Dog(void)
+{
+	std::cout << "Dog destructor called" << std::endl;
+}
