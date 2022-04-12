@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:19:56 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/08 16:59:42 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/04/12 19:27:28 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,68 @@
 
 int main(void)
 {
-	// const Animal *lotsOfAnimals[N_ANIMALS];
-	const Animal *dog = new Dog();
+	{
+		const Animal *lotsOfAnimals[N_ANIMALS];
 
-	dog->makeSound();
-	Brain *brain = dog->getBrain();
-	brain->setIdea("Quiero nuggets", 0);
-	brain->setIdea("Kill me now!", 1);
-	brain->setIdea("Hello!", 2);
+		for (int i = 0; i < N_ANIMALS; i++)
+		{
+			if (i < N_ANIMALS / 2)
+				lotsOfAnimals[i] = new Dog();
+			else
+				lotsOfAnimals[i] = new Cat();
+		}
+		std::cout << "-------------------------------------\n";
+		std::cout << lotsOfAnimals[0]->getType() << std::endl;
+		std::cout << lotsOfAnimals[5]->getType() << std::endl;
+		Brain *brain;
+		brain = lotsOfAnimals[0]->getBrain();
+		brain->setIdea("I want sarshisitas!", 0);
+		brain->setIdea("Let's play bal!!", 1);
+		brain->setIdea("Feed me human!", 2);
+		std::cout << lotsOfAnimals[0]->getBrain()->getIdea(0) << std::endl;
+		std::cout << lotsOfAnimals[0]->getBrain()->getIdea(1) << std::endl;
+		std::cout << "-------------------------------------\n";
+		for (int i = 0; i < N_ANIMALS; i++)
+			delete lotsOfAnimals[i];
+	}
+	std::cout << "-------------------------------------\n";
+	{
+		std::cout << "Check deep copy of Dog class using copy constructor:\n" << std::endl;
+		Dog *dogA = new Dog;
+		Dog *dogB = new Dog(*dogA);
 
-	Brain *brain2(brain);
-	std::cout << brain2->getIdea(0) << std::endl;
-	// for (int i = 0; i < N_ANIMALS; i++)
-	// {
-	// 	if (i < N_ANIMALS / 2)
-	// 		lotsOfAnimals[i] = new Dog();
-	// 	else
-	// 		lotsOfAnimals[i] = new Cat();
-	// }
-	// std::cout << lotsOfAnimals[0]->getType() << std::endl;
-	// std::cout << lotsOfAnimals[5]->getType() << std::endl;
+		delete dogA;
+		delete dogB;
+	}
+	std::cout << "-------------------------------------\n";
+	{
+		std::cout << "Check deep copy of Dog class using assignment operator overload:\n" << std::endl;
+		Dog *dogA = new Dog;
+		Dog *dogB = new Dog;
 
-	// Brain *brain;
-	// brain = lotsOfAnimals[0]->getBrain();
-	// brain->setIdea("I want sarshisitas!", 0);
-	// brain->setIdea("Let's play bal!!", 1);
-	// brain->setIdea("Feed me human!", 2);
-	// std::cout << lotsOfAnimals[5]->getType() << std::endl;
-	// delete dog;//should not create a leak
-    // delete cat;
+		*dogA = *dogB;
+		delete dogA;
+		delete dogB;
+	}
+	std::cout << "-------------------------------------\n";
+	{
+		std::cout << "Check deep copy of Cat class using copy constructor:\n" << std::endl;
+		Cat *catA = new Cat;
+		Cat *catB = new Cat(*catA);
 
+		delete catA;
+		delete catB;
+	}
+	std::cout << "-------------------------------------\n";
+	{
+		std::cout << "Check deep copy of Cat class using assignment operator overload:\n" << std::endl;
+		Cat *catA = new Cat;
+		Cat *catB = new Cat;
+
+		*catA = *catB;
+		delete catA;
+		delete catB;
+	}
+	// system("leaks -q animalBrain");
 	return (0);
 }

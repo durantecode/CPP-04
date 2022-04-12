@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 02:01:31 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/08 16:41:28 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/04/12 19:29:18 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,23 @@
 Cat::Cat(void)
 {
 	this->m_type = "Cat";
-	this->m_brain = new Brain();
+	this->m_brain = new Brain;
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::Cat(Cat const &toCopy)
 {
-	*this = toCopy;
+	std::cout << "Cat copy constructor called" << std::endl;
+	this->m_type = toCopy.getType();
+	this->m_brain = new Brain;
+	*(this->m_brain) = *(toCopy.getBrain());
 }
 
 Cat &Cat::operator = (Cat const &toCopy)
 {
+	std::cout << "Cat assignment operator overload called" << std::endl;
 	this->m_type = toCopy.getType();
+	*(this->m_brain) = *(toCopy.getBrain());
 	return *this;
 }
 

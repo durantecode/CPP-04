@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 15:52:16 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/08 16:50:58 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/04/12 18:46:27 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ Brain::Brain(void)
 
 Brain::Brain(Brain const &toCopy)
 {
+	std::cout << "Brain copy constructor called" << std::endl;
 	*this = toCopy;
 }
 
 Brain &Brain::operator = (Brain const &toCopy)
 {
+	std::cout << "Brain assignment operator overload called" << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = toCopy.getIdea(i);
 	return *this;
