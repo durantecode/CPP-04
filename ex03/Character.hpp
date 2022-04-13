@@ -6,13 +6,14 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 00:11:54 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/13 00:17:56 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/04/13 16:41:08 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
+#include <string>
 #include "ICharacter.hpp"
 
 class Character : public ICharacter
@@ -24,13 +25,13 @@ class Character : public ICharacter
 
 	public:
 		Character(void);
-		Character(std::string name);
+		Character(std::string const &name);
 		Character(Character const &toCopy);
-		~Character(void);
+		virtual ~Character(void);
 		Character &operator = (Character const &toCopy);
 	
 		virtual std::string const &getName() const;
-		virtual void equip(AMateria* m);
+		virtual void equip(AMateria *m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
 };

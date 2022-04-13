@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:04:47 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/12 21:13:58 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:10:28 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ AMateria::AMateria(void)
 
 }
 
+AMateria::AMateria(std::string const &type) : m_type(type)
+{
+	
+}
+
 AMateria::AMateria(AMateria const &toCopy)
 {
 	*this = toCopy;
@@ -24,6 +29,7 @@ AMateria::AMateria(AMateria const &toCopy)
 
 AMateria &AMateria::operator = (AMateria const &toCopy)
 {
+	this->m_type = toCopy.getType();
 	return *this;
 }
 
@@ -32,7 +38,7 @@ const std::string &AMateria::getType() const
 	return (this->m_type);
 }
 
-AMateria::~AMateria(void)
+void AMateria::use(ICharacter &target)
 {
-
+	std::cout << "AMateria use????" << target.getName() << std::endl;
 }

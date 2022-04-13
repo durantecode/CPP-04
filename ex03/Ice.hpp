@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/13 12:34:46 by ldurante          #+#    #+#             */
+/*   Updated: 2022/04/13 14:29:56 by ldurante         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ICE_HPP
 # define ICE_HPP
 
@@ -5,15 +17,14 @@
 
 class Ice : public AMateria
 {
-	private:
-
 	public:
 		Ice(void);
 		Ice(Ice const &toCopy);
 		~Ice(void);
 		Ice &operator = (Ice const &toCopy);
 
-		AMateria *clone() const;
+		virtual AMateria *clone() const;
+		virtual void use(ICharacter &target);
 };
 
 #endif
