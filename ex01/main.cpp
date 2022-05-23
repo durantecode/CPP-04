@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:19:56 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/12 19:27:28 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/05/23 17:36:59 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,5 @@ int main(void)
 		delete catA;
 		delete catB;
 	}
-	// system("leaks -q animalBrain");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ldurante <ldurante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 00:19:56 by ldurante          #+#    #+#             */
-/*   Updated: 2022/04/12 19:48:47 by ldurante         ###   ########.fr       */
+/*   Updated: 2022/05/23 17:41:53 by ldurante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int main(void)
 		Animal *dog = new Dog;
 		dog->makeSound();
 
-		// Animal *cat = new Animal;
+		/* This will result in error because having at least one pure virtual
+		function makes the class abstract */
 
-		// cat->makeSound();
+		// const Animal* animal = new Animal();
+		// animal->makeSound();
 	}
 	return (0);
 }
